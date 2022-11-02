@@ -1,3 +1,8 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+import matplotlib.gridspec as gridspec
+
 def decode(hvCat,nlabel,clabel,catList):
     if hvCat >= nlabel:
         hvCat -= nlabel
@@ -23,26 +28,6 @@ def hvCat_encode(string):
     if "SMM" in catList: code += 16
     return code
     
-def histMake(data,binEdge,weights=None,norm=True):
-    data,bins = np.histogram(data, bins=binEdge, weights=weights, density=norm)
-    bins = np.array([0.5 * (bins[i] + bins[i+1]) for i in range(len(bins)-1)])
-    binwidth = bins[1] - bins[0]
-    pbins = np.append(bins,bins[-1]+binwidth)
-    pdata = np.append(data,data[-1])
-    return np.array(pbins),np.array(pdata)
-
-def histplot(pdata,pbins,color,label,alpha=1.0,hatch=None,points=False,facecolorOn=True,ax=plt):
-    if points:
-        ax.plot(pbins[:-1],pdata[:-1],color=color,label=label,marker=".",linestyle="None")
-    else:
-        ax.step(pbins,pdata,where="post",color=color)
-        if facecolorOn:
-            facecolor=color
-        else:
-            facecolor="none"
-        ax.fill_between(pbins,pdata, step="post", edgecolor=color, facecolor=facecolor, label=label, alpha=alpha, hatch=hatch)
-
-def histMakePlot(data,binEdge,color,label,weights=None,alpha=1.0,hatch=None,points=False,facecolorOn=True,norm=True,ax=plt):
-    pbins,pdata = histMake(data,binEdge,weights=weights,norm=norm)
-    histplot(pdata,pbins,color,label,alpha=alpha,hatch=hatch,points=points,facecolorOn=facecolorOn,ax=ax)
-    return pdata,pbins
+def getBin(variables,varName):
+    varDetail = variables[varName]
+    return np.linspace(varDetail[2],varDetail[3]*1.001,varDetail[1])

@@ -14,13 +14,9 @@ import utility as ut
 
 mpl.rc("font", family="serif", size=20)
 
-def getBin(variables,varName):
-    varDetail = variables[varName]
-    return np.linspace(varDetail[2],varDetail[3]*1.001,varDetail[1])
-
 def getWeights(JetsAK8_hvCategory,catLabel,QPtHist):
     catBranches = branches[JetsAK8_hvCategory == ut.hvCat_encode(catLabel)]
-    hist,bin_edges = np.histogram(catBranches['jPtAK8'],bins=getBin(var.allVars,'jPtAK8'))
+    hist,bin_edges = np.histogram(catBranches['jPtAK8'],bins=ut.getBin(var.allVars,'jPtAK8'))
     return np.nan_to_num(np.array(QPtHist)/np.array(hist), nan=0.0, posinf=0.0, neginf=0.0)
     
 fileName = "tree_SVJ_mMed-1000_mDark-20_rinv-0p3_alpha-peak_yukawa-1_NN.root"
@@ -29,7 +25,7 @@ ftree = f['tree']
 branches = ftree.arrays(list(var.allVars.keys()) + ['JetsAK8_hvCategory'],library="pd")
 JetsAK8_hvCategory = branches['JetsAK8_hvCategory']
 Qbranches = branches[JetsAK8_hvCategory == ut.hvCat_encode("Q_lD")]
-QPtHist,bin_edges = np.histogram(Qbranches['jPtAK8'],bins=getBin(var.allVars,'jPtAK8'))
+QPtHist,bin_edges = np.histogram(Qbranches['jPtAK8'],bins=ut.getBin(var.allVars,'jPtAK8'))
 
 weightDict = {}
 weightDict["bin_edges"] = bin_edges
