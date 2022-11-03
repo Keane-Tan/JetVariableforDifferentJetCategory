@@ -1,7 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib as mpl
-import matplotlib.gridspec as gridspec
 
 def decode(hvCat,nlabel,clabel,catList):
     if hvCat >= nlabel:

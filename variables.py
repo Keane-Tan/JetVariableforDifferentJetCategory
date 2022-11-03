@@ -4,8 +4,8 @@ allVars = {
         'jPtAK8':                  [r"$p_{T}$ [GeV]",         40,    0.0,    3500.0],
         'jEtaAK8':                 [r"$\eta$",                20,   -6.0,    6.0   ],
         'jPhiAK8':                 [r"$\phi$",                20,   -4.0,    4.0   ],
-        'jAxismajorAK8':           [r"$\sigma_{major}(J)$",   40,     0.0,    0.6   ],
-        'jAxisminorAK8':           [r"$\sigma_{minor}(J)$",   40,     0.0,    0.4   ],
+        'jAxismajorAK8':           [r"$\sigma_{major}(J)$",   40,     0.0,    0.5   ],
+        'jAxisminorAK8':           [r"$\sigma_{minor}(J)$",   40,     0.0,    0.3   ],
         'jChEMEFractAK8':          ["fChEM(J)",               50,     0.0,    1.0   ],
         'jChHadEFractAK8':         ["fChHad(J)",              50,     0.0,    1.0   ],
         'jChHadMultAK8':           ["nChHad(J)",              145,    0.0,    145.0 ],
@@ -16,7 +16,7 @@ allVars = {
         'jecfN3b2AK8':             ["ecfN3b2(J)",             50,     0.0,    5.0   ],
         'jEleEFractAK8':           ["fEle(J)",                50,     0.0,    1.0   ],
         'jEleMultAK8':             ["nEle(J)",                8,      0.0,    8.0   ],
-        'jGirthAK8':               ["girth(J)",               40,     0.0,    0.7   ],
+        'jGirthAK8':               ["girth(J)",               40,     0.0,    0.5   ],
         'jHfEMEFractAK8':          ["fHFEM(J)",               50,     0.0,    1.0   ],
         'jHfHadEFractAK8':         ["fHFHad(J)",              50,     0.0,    1.0   ],
         'jMultAK8':                ["mult(J)",                50,    0.0,    250.0 ],
@@ -34,22 +34,22 @@ allVars = {
         'jPhoEFractAK8':           ["fPho(J)",                50,     0.0,    1.0   ],
         'jPhoMultAK8':             ["nPho(J)",                110,    0.0,    110.0 ],
         'jPtDAK8':                 ["ptD",                    40,     0.0,    1.2   ],
-        'jSoftDropMassAK8':        [r"$m_{SD}(J)$",           40,    0.0,    900   ],
+        'jSoftDropMassAK8':        [r"$m_{SD}(J)$",           40,    0.0,    250.   ],
         'dPhijMETAK8':             [r"$\Delta\phi(J,MET)$",   30,    0.0,    4.0   ]
 }
 
 # the colors below are the default colors in matplotlib. I only added black at the end.
 colorDict = {
-                'lD':'#1f77b4', 
                 'Q_lD':'#ff7f0e', 
                 'QM_lD':'#2ca02c', 
+                'QM_Q_lD':'#bcbd22', 
+                'QM_G_lD':'#17becf',
+                'G_Q_lD':'#7f7f7f', 
+                'G_lD':'#8c564b',  
+                'lD':'#1f77b4', 
                 'SMM_lD':'#d62728', 
                 'SM':'#9467bd', 
-                'G_lD':'#8c564b', 
-                'SMM':'#e377c2', 
-                'G_Q_lD':'#7f7f7f', 
-                'QM_Q_lD':'#bcbd22', 
-                'QM_G_lD':'#17becf', 
+                'SMM':'#e377c2',                 
                 'SMM_G_lD':'#000000'
             }
             
